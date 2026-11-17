@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUM-E / TARS: AI-Powered Dual-Arm Mobile Household Assistant</title>
+    <title>DUM-E: AI-Powered Dual-Arm Mobile Household Assistant</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Three.js r128 -->
@@ -185,7 +185,7 @@
                 </div>
                 <div>
                     <div class="flex items-center gap-2 flex-wrap">
-                        <span class="text-xs font-mono-tech uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold">DUM-E // TARS MK-IV</span>
+                        <span class="text-xs font-mono-tech uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold">DUM-E MK-IV</span>
                         <span id="fsm-state-badge" class="text-[10px] font-mono-tech px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-semibold">
                             FSM: IDLE
                         </span>
@@ -563,7 +563,7 @@
             <div class="flex items-center justify-between border-b border-slate-700 pb-3 mb-3">
                 <div>
                     <span class="text-[10px] font-mono-tech uppercase px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">BME PROJECT PROPOSAL SPECIFICATION</span>
-                    <h3 class="text-lg font-bold text-white mt-1">TARS / DUM-E: AI-Powered Dual-Arm Mobile Household Assistant</h3>
+                    <h3 class="text-lg font-bold text-white mt-1">DUM-E: AI-Powered Dual-Arm Mobile Household Assistant</h3>
                 </div>
                 <button onclick="toggleSpecsModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
@@ -752,7 +752,7 @@
             scene.fog = new THREE.FogExp2(0x090d16, 0.032);
 
             camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
-            // Secondary camera mounted inside DUM-E/TARS head for authentic OpenCV PiP rendering
+            // Secondary camera mounted inside DUM-E head for authentic OpenCV PiP rendering
             robotCam = new THREE.PerspectiveCamera(62, 320 / 160, 0.15, 25);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
@@ -789,7 +789,7 @@
             scene.add(rimLight2);
 
             buildIndoorEnvironment();
-            buildDumeTarsRobot();
+            buildDumeRobot();
             createCalloutDOMElements();
             setupInteractionEvents();
 
@@ -1033,9 +1033,9 @@
         }
 
         // ============================================================================
-        // 5. BUILD DETAILED DUM-E / TARS DUAL-ARM ROBOT MODEL
+        // 5. BUILD DETAILED DUM-E DUAL-ARM ROBOT MODEL
         // ============================================================================
-        function buildDumeTarsRobot() {
+        function buildDumeRobot() {
             robot.root = new THREE.Group();
             scene.add(robot.root);
 
@@ -1069,7 +1069,7 @@
             rearBumper.position.z = -0.72;
             robot.chassis.add(rearBumper);
 
-            // Top Electronics & Battery Core Housing (TARS + DUM-E Industrial Block)
+            // Top Electronics & Battery Core Housing (DUM-E Industrial Block)
             const coreHousing = new THREE.Mesh(new THREE.BoxGeometry(0.88, 0.26, 0.96), brushedMetalMat);
             coreHousing.position.set(0, 0.50, -0.05);
             coreHousing.castShadow = true;
@@ -1130,7 +1130,7 @@
             // DUM-E Stenciled Chest Plate
             const chestPlate = new THREE.Mesh(
                 new THREE.BoxGeometry(0.56, 0.36, 0.34),
-                new THREE.MeshStandardMaterial({ map: createStencilTexture('DUM-E // TARS', '#f59e0b', '#0f172a'), roughness: 0.35 })
+                new THREE.MeshStandardMaterial({ map: createStencilTexture('DUM-E MK-IV', '#f59e0b', '#0f172a'), roughness: 0.35 })
             );
             chestPlate.position.set(0, 1.22, 0.05);
             robot.chassis.add(chestPlate);
@@ -2002,7 +2002,7 @@
                         new THREE.Vector3(0, 0.05, 0),
                         new THREE.Vector3(0, 0.05, 0)
                     ]);
-                    logNLP(`Mission accomplished! DUM-E / TARS returned to standby.`);
+                    logNLP(`Mission accomplished! DUM-E returned to standby.`);
                     stopMission();
                     break;
                 }
@@ -2227,7 +2227,7 @@
             setRobotPose('home');
             spawnHouseholdObjects();
             envObjects.navPathLine.geometry.setFromPoints([new THREE.Vector3(0, 0.05, 0), new THREE.Vector3(0, 0.05, 0)]);
-            logNLP('Environment & DUM-E / TARS robot reset to initial household state.');
+            logNLP('Environment & DUM-E robot reset to initial household state.');
         }
 
         function setCameraMode(mode) {
